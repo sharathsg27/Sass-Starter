@@ -5,6 +5,7 @@ var gulp = require('gulp'),
 gulp.task('styles', function () {
     return gulp.src('./sass/styles.scss')
         .pipe(saas())
+        .on('error', saas.logError)
         .pipe(gulp.dest('./css'))
 });
 
