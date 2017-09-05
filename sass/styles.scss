@@ -1,5 +1,6 @@
 $primary-color: #FEFEFE;
-$button-color: #777573;
+$button-color: #EED25E;
+
 
 //Reset to Base =====
 * {
@@ -20,6 +21,14 @@ body {
   line-height: 1.5;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
+//Mixins =====
+
+@mixin borders-slack($width, $border-style, $border-color) {
+  border: $width $border-style $border-color;
+
+}
+
 
 //Site Header
 #site__header {
@@ -48,6 +57,20 @@ body {
 //Article
 .article {
 
+}
+
+//Article Content =====
+.article__content {
+  pre {
+    background: lighten(#222, 10%);
+    @include borders-slack(10px, solid, #CCC);
+    border-top-width: 0;
+    border-bottom-width: 0;
+  }
+
+  code {
+    color: darken(#FFF, 20%);
+  }
 }
 
 //Header
@@ -111,7 +134,7 @@ body {
     0.2s ease border-radius;
 
     &:hover {
-      background: lighten($button-color, 5%);
+      background: lighten($button-color, 10%);
       border-radius: 0;
     }
 
@@ -126,5 +149,22 @@ body {
 ul.table-of-content {
   li {
     text-decoration: none;
+    border-bottom: none;
+    padding: 5px;
+    color: #986767;
+    list-style-type: square;
+
+    a {
+      color: #986767;
+
+    }
+  }
+}
+
+//Ad ======
+.ad {
+  display: flex;
+  img {
+    margin-right: 20px;
   }
 }
